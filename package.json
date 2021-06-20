@@ -12,12 +12,15 @@
     "url": "git+https://github.com/KrzGruszcz/coding_task.git"
   },
   "author": "KrzGruszcz",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/KrzGruszcz/coding_task/issues"
   },
   "homepage": "https://github.com/KrzGruszcz/coding_task#readme",
   "devDependencies": {
-    "cypress": "^7.5.0"
+    "cypress": "^7.5.0",
+    "cypress-cucumber-preprocessor": "^4.1.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true
   }
 }
