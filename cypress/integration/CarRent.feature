@@ -11,7 +11,16 @@ Feature: Car Rent Page
         And I click 'Search' button
         Then Search result 'is' displayed
 
-    Scenario: Rent specific car
+    Scenario: Select specific car
         Given Search result 'is' displayed
         When I click 'Rent' button for 'Skoda Octavia' model
         Then I see 'Skoda Octavia' rent details
+
+    Scenario: Submit car rental
+        Given I click 'Rent' button in rent details
+        When I set 'Krz' name
+        And I set 'Gruszcz' last name
+        And I set '1111222233334444' card number
+        And I set 'krz.gruszcz@gmail.com' email
+        And I submit car rental
+        # TODO: Page not found

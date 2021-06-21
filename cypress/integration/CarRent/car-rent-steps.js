@@ -24,32 +24,25 @@ Then('Search result {string} displayed', (possibility) => {
 })
 
 When('I select {string} country', (countryName) => {
-    cy.get('#country')
-        .select(countryName)
-    cy.get('#country')
-        .should('have.value', country[countryName])
+    cy.get('#country').select(countryName)
+    cy.get('#country').should('have.value', country[countryName])
 })
 
 And('I select {string} city', (cityName) => {
-    cy.get('#city')
-        .select(cityName)
-    cy.get('#city')
-        .should('have.value', city[cityName])
+    cy.get('#city').select(cityName)
+    cy.get('#city').should('have.value', city[cityName])
 })
 
 And('I type {string} model', (carModel) => {
-    cy.get('#model')
-        .type(carModel)
+    cy.get('#model').type(carModel)
 })
 
 And('I choose {string} pick-up date', (pickupDate) => {
-    cy.get('#pickup')
-        .type(pickupDate)
+    cy.get('#pickup').type(pickupDate)
 })
 
 And('I choose {string} drop-off date', (dropoffDate) => {
-    cy.get('#dropoff')
-        .type(dropoffDate)
+    cy.get('#dropoff').type(dropoffDate)
 })
 
 And('I click \'Search\' button', () => {
@@ -72,4 +65,28 @@ Then('I see {string} rent details', (carName) => {
     cy.url().should('include', '/details')
     cy.get('.card-header').should('contain', carName)
     cy.get('a.btn').should('contain', 'Rent')
+})
+
+Given('I click \'Rent\' button in rent details', () => {
+    cy.get('.card .btn').click();
+})
+
+When('I set {string} name', (name) => {
+    cy.get('#name').type(name)
+})
+
+And('I set {string} last name', (lastName) => {
+    cy.get('#last_name').type(lastName)
+})
+
+And('I set {int} card number', (cardNumber) => {
+    cy.get('#card_number').type(cardNumber)
+})
+
+And('I set {string} email', (email) => {
+    cy.get('#email').type(email)
+})
+
+And('I submit car rental', () => {
+    cy.get('[type=submit]').click()
 })
